@@ -22,3 +22,16 @@ var person = {
     },
   ],
 };
+
+console.warn(
+  'Afiseaza propozitia: “Ma numesc xxx yyy si stiu html si css. Foloseste notatia cu paranteze patrate',
+);
+// add code
+
+console.warn(
+  'Afiseaza propozitia “Am x prieteni: Larry, Steven si Carol.”',
+  'Foloseste proprietatea length si apeleaza direct proprietatile name ale obiectelor.',
+);
+
+console.log('Am' + person.friends.length + 'prieteni:');
+// add code
