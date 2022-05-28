@@ -7,7 +7,7 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
-  <title>Ex 5</title>
+  <title>Ex 05</title>
 
   <link
     rel="stylesheet"
@@ -17,8 +17,27 @@
   <script src="https://pixellab.ro/js/pixeltab/static/js/pixeltab-top.js"></script>
 </head>
 
-<body>
+<body onload="onload=(console.log(prompt('Bine ai venit! Cum te cheama?')))">
+  <script src="app.js"></script>
+  <script src="utils.js"></script>
 
+  <h1 onclick="alert('Victor Jilescu')">Hello</h1>
+
+  <button
+    title="Apasa"
+    onclick="console.log('Am fost apasat!')"
+  >Apasa</button>
+
+  <button
+    title="Apasa-l"
+    onclick="alert('Butonul a fost apasat')"
+  >Apasa-l</button>
+
+  <button
+    title="Hai"
+    id="Hai"
+    onclick="console.log(prompt('Care e numele tau?'));"
+  >Hai</button>
 
 
 
