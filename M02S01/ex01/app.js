@@ -9,22 +9,33 @@ class Car {
   topSpeed = 160;
   topReverseSpeed = -50;
   areLightsOn = false;
+  isTrunkOpen = false;
 
-  turnLighstOn() {
+  openTrunk() {
+    this.isTrunkOpen = true;
+  }
+
+  closeTrunk() {
+    this.isTrunkOpen = false;
+  }
+
+  turnLightsOn() {
     this.areLightsOn = true;
   }
 
-  turnLighstOff() {
+  turnLightsOff() {
     this.areLightsOn = false;
   }
 
-  flashLights = () => {
-    this.turnLighstOn();
+  // how to preserver this
+  // the modern way
+  flashLights() {
+    this.turnLightsOn();
 
-    setTimeout(function () {
-      this.turnLighstOff();
+    setTimeout(() => {
+      this.turnLightsOff();
     }, 3000);
-  };
+  }
 
   accelerate() {
     this.setSpeed(this.speed + 1);
@@ -56,4 +67,8 @@ const opel = new Car('Opel', 'red', 4, 3);
 
 const cars = [audi, opel];
 
-// de luat commitul
+cars.forEach((car) => {
+  console.log(
+    `${car} era marca ${make} si se deplasa cu viteza ${speed} km/h.`,
+  );
+});

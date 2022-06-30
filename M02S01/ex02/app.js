@@ -62,3 +62,13 @@ class Bicycle extends Vehicle {
 }
 
 const bike = new Bicycle('Pegas', 'red', 8, 20);
+
+class Tricycle extends Vehicle {
+  constructor(make, color, speed, topReverseSpeed, topSpeed) {
+    super(make, color, 3, speed, topReverseSpeed, topSpeed, 0);
+  }
+}
+
+const trike = new Tricycle('Tryke', 'red', 2, -2, 9);
+
+const Car = new Vehicle('Audi', 'blue', 4, 3, 140, -50);

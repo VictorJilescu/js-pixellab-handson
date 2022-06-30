@@ -4,6 +4,24 @@ const Car = {
   wheels: 0,
   speed: 0,
 
+  areLightsOn: false,
+
+  turnLightsOn() {
+    this.areLightsOn = true;
+  },
+
+  turnLightsOff() {
+    this.areLightsOn = false;
+  },
+
+  flashLights() {
+    this.turnLightsOn();
+
+    window.setTimeout(() => {
+      this.turnLightsOff();
+    }, 3000);
+  },
+
   displaySpeed: function () {
     console.log(`Viteza curenta este: ${this.speed}`);
   },
