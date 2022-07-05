@@ -66,3 +66,23 @@ $container.before(
     text: 'jQuery is old',
   }),
 );
+
+const $secondLink = $('<a>', {
+  text: 'jQuery',
+  class: 'nav-link',
+  title: 'Second Link',
+  href: 'https://jquery.com/',
+}).appendTo($navigation);
+
+$secondLink.before(
+  $('<p>', {
+    text: 'jQuery',
+  }),
+);
+
+$secondLink.prepend(
+  $('<sup>', {
+    text: 1,
+    style: 'text-decoration: none',
+  }),
+);

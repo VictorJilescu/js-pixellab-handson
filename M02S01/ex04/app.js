@@ -44,6 +44,8 @@ class Car {
     this.wheelBack.append(this.hubCapBack);
   }
 
+  toggleHazards = false;
+
   moveTo(positionX, positionY) {
     this.positionX = positionX;
     this.positionY = positionY;
@@ -63,8 +65,16 @@ class Car {
   render() {
     document.body.append(this.frame);
   }
+
+  areHazardsOn() {
+    this.toggleHazards = true;
+  }
 }
 
 const car01 = new Car(140, 140, 'teal');
 car01.render();
 car01.moveTo(500, 600);
+
+const car02 = new Car(10, 10, black, red, blue);
+car02.changeCapColor(green);
+car02.changeTireColor(magenta);
