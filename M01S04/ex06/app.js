@@ -77,3 +77,10 @@ console.warn(
 for (var i = person.skills.length - 1; i >= 0; i--) {
   console.log(person.skills[i]);
 }
+
+console.warn(`
+Folosind obiectul person si un for, afiseaza in consola skillurile de pe pozitiile pare ale arrayului.
+`);
+for (var i = 0; (i = person.skills % 2 === 0); i--) {
+  console.log(person.skills[i]);
+}
