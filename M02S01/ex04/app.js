@@ -1,4 +1,8 @@
 class Car {
+  areLightsOn = false;
+  intervalId = 0;
+  initialLightState = false;
+
   constructor(positionX, positionY, color) {
     this.positionX = positionX;
     this.positionY = positionY;
@@ -15,10 +19,12 @@ class Car {
 
     this.carTop = document.createElement('div');
     this.carTop.classList.add('car__top');
+    this.carTop.style.backgroundColor = this.color;
     this.car.append(this.carTop);
 
     this.carBody = document.createElement('div');
     this.carBody.classList.add('car__body');
+    this.carBody.style.backgroundColor = this.color;
     this.car.append(this.carBody);
 
     this.lightBack = document.createElement('div');
@@ -42,9 +48,9 @@ class Car {
     this.hubCapBack = document.createElement('div');
     this.hubCapBack.classList.add('wheel__cap');
     this.wheelBack.append(this.hubCapBack);
-  }
 
-  toggleHazards = false;
+    return this;
+  }
 
   moveTo(positionX, positionY) {
     this.positionX = positionX;
@@ -54,27 +60,66 @@ class Car {
     this.frame.style.top = `${this.positionY}px`;
   }
 
+  turnLightsOn() {
+    this.lightFront.style.backgroundColor = 'yellow';
+    this.lightBack.style.backgroundColor = 'red';
+
+    this.areLightsOn = true;
+  }
+
+  turnLightsOff() {
+    this.lightFront.style.backgroundColor = 'white';
+    this.lightBack.style.backgroundColor = 'white';
+
+    this.areLightsOn = false;
+  }
+
+  toggleHazards() {
+    const self = this;
+
+    if (self.intervalId !== 0) {
+      clearInterval(self.intervalId);
+      self.intervalId = 0;
+
+      if (self.initialLightState === true) {
+        self.turnLightsOn();
+      } else {
+        self.turnLightsOff();
+      }
+
+      return;
+    }
+
+    self.initialLightState = self.areLightsOn;
+
+    self.intervalId = setInterval(function () {
+      if (self.areLightsOn === true) {
+        self.turnLightsOff();
+      } else {
+        self.turnLightsOn();
+      }
+    }, 1000);
+
+    return self;
+  }
+
   engageBreak() {
     this.lightBack.style.backgroundColor = 'red';
+
+    return this;
   }
 
   disengageBreak() {
     this.lightBack.style.backgroundColor = 'white';
+
+    return this;
   }
 
   render() {
     document.body.append(this.frame);
-  }
 
-  areHazardsOn() {
-    this.toggleHazards = true;
+    return this;
   }
 }
 
-const car01 = new Car(140, 140, 'teal');
-car01.render();
-car01.moveTo(500, 600);
-
-const car02 = new Car(10, 10, black, red, blue);
-car02.changeCapColor(green);
-car02.changeTireColor(magenta);
+const car01 = new Car(300, 16, 'teal').render().turnLightsOn();
