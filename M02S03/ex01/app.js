@@ -1,3 +1,10 @@
+var input = document.getElementById('p');
+if ('p' === null) {
+  createElement();
+} else {
+  innerText = this.speed;
+}
+
 class Car {
   constructor(make, color, wheels, speed) {
     this.make = make;

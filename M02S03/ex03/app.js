@@ -1,3 +1,4 @@
+const mouseIn = document.querySelector('.mouseIn');
 const stage = document.querySelector('.stage');
 
 stage.addEventListener('mouseover', function () {
@@ -9,6 +10,12 @@ stage.addEventListener('mouseover', function () {
 });
 stage.addEventListener('mouseout', function () {
   const message = 'Mouseul NU este pe scena';
+
+  showMessage('.message', message);
+});
+
+mouseIn.addEventListener('mousein', function () {
+  const message = Number();
 
   showMessage('.message', message);
 });

@@ -212,7 +212,11 @@ $(function () {
             .siblings('.skillDisplay')
             .text($saveButton.siblings('input[name^="skill-"]').val());
 
-          // insert code here
+          $saveButton.siblings('.saveSkillButton').hide();
+          $saveButton.siblings('.cancelSkillButton').hide();
+          $saveButton.siblings('.skillDisplay').show();
+          $saveButton.siblings('.removeSkillButton').show();
+          $saveButton.siblings('.editSkillButton').show();
         });
 
       $('<li>')
