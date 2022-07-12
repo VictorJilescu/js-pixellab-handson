@@ -56,18 +56,19 @@ $(function () {
         }
         const petData = petValues.join(',');
 
-        const $petLi = $(
-          '<li>'.append(
+        const $petLi = $('<li>')
+          .append(
             $('<span>', {
               text: petData,
             }),
-          ),
-        ).append(
-          $('<input>', {
-            value: petData,
-            type: text,
-          }),
-        );
+          )
+          .append(
+            $('<input>', {
+              value: petData,
+              type: 'hidden',
+              name: `pet-data-${petData}`,
+            }),
+          );
 
         $petLi.appendTo($ul);
 
