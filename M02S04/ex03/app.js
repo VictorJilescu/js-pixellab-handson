@@ -91,6 +91,9 @@ function updateHeroPosition(currentAxis, currentDirection) {
 
 // hoisting
 function renderHero(hero) {
-  heroElement.style.left = `${hero.x}px`;
-  heroElement.style.top = `${hero.y}px`;
+  // heroElement.style.left = `${hero.x}px`;
+  // heroElement.style.top = `${hero.y}px`;
+
+  const cssText = `transform: translate(${hero.x}px, ${hero.y}px)`;
+  heroElement.setAttribute('style', cssText);
 }

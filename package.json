@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@glidejs/glide": "^3.5.2",
+    "pristinejs": "^0.1.9",
     "throttle-debounce": "^5.0.0"
   }
 }
